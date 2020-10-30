@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fregments/head :: head"></div>
+<body>
+<div th:replace="fregments/header :: header"></div>
+<link rel="stylesheet" th:href="@{/css/register.css}" href="../static/css/register.css" type="text/css">
+
+<main>
+    <section>
+        <div class="container-lg">
+            <div class="row">
+                <!--/*@thymesVar id="user" type="com.blog.blog.model.User"*/-->
+                <form th:object="${user}" name="register" class="registerform" th:action="@{/register}" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="username">Felhasználónév</label>
+                        <input th:field="*{username}" type="text" class="form-control" id="username" name="username" placeholder="Felhasználónév" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email:</label>
+                        <input th:field="*{email}" type="email" class="form-control" id="email" name="email" placeholder="Emailcímed" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Jelszó</label>
+                        <input th:field="*{password}" type="password" name="password" class="form-control" id="password" placeholder="Jelszó" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Jelszó ellenőrzés</label>
+                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Jelszó ismét" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Születési dátum</label>
+                        <input th:field="*{birthday}" type="date" name="birthday" class="form-control" id="birthday" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Regisztráció</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

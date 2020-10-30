@@ -1,0 +1,7 @@
+#newCategoryInput{
+    display: none;
+}
+.textarea{
+    min-height: 150px;
+    font-size: 20px;
+}
